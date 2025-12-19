@@ -1,40 +1,27 @@
-import { motion } from 'framer-motion';
 import Layout from '@/components/Layout';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import ServiceHero from '@/components/services/ServiceHero';
+import StatisticsSection from '@/components/services/StatisticsSection';
+import ServicesListSection from '@/components/services/ServicesListSection';
+import OutcomesSection from '@/components/services/OutcomesSection';
+import WhyChooseUsSection from '@/components/services/WhyChooseUsSection';
+import WhatIsSection from '@/components/services/WhatIsSection';
+import FeaturesSection from '@/components/services/FeaturesSection';
+import ServiceCTA from '@/components/services/ServiceCTA';
+import { 
+  customLLMData, 
+  ragDevelopmentData, 
+  langchainData, 
+  commonStats, 
+  commonOutcomes 
+} from '@/data/serviceData';
 
-const servicesData: Record<string, {
+// Legacy data for other service pages
+const legacyServicesData: Record<string, {
   title: string;
   tagline: string;
   description: string[];
 }> = {
-  'custom-llm': {
-    title: 'Custom Large Language Model',
-    tagline: 'Build tailored LLM solutions designed specifically for your business needs',
-    description: [
-      'Our custom LLM development service creates powerful language models fine-tuned for your specific use cases. We work closely with your team to understand your data, requirements, and goals.',
-      'Whether you need a model for customer service automation, content generation, data analysis, or specialized domain applications, we deliver solutions that outperform generic models.',
-      'Our approach includes data curation and preparation, model architecture selection, training pipeline development, fine-tuning and optimization, and comprehensive testing to ensure your LLM meets the highest standards of accuracy and performance.',
-    ],
-  },
-  'rag-engineering': {
-    title: 'RAG Advanced Engineering',
-    tagline: 'Implement sophisticated retrieval-augmented generation for accurate, contextual AI responses',
-    description: [
-      'RAG Engineering is at the core of building AI systems that provide accurate, up-to-date, and contextually relevant responses. Our advanced RAG implementations go beyond basic retrieval to deliver enterprise-grade solutions.',
-      'We design and implement hybrid search strategies combining vector and keyword search, intelligent chunking algorithms, reranking mechanisms, and citation tracking systems that ensure every AI response is grounded in your actual data.',
-      'Our RAG solutions integrate seamlessly with your existing data sources—databases, document repositories, knowledge bases, and APIs—to create AI assistants that truly understand and leverage your organizational knowledge.',
-    ],
-  },
-  'langchain-development': {
-    title: 'LangChain Development',
-    tagline: 'Accelerate your AI development with the LangChain framework',
-    description: [
-      'LangChain provides a powerful framework for building applications with large language models. Our expertise helps you leverage this technology to build production-ready AI applications faster.',
-      'We specialize in designing complex chains and agents, implementing memory systems for contextual conversations, integrating with external tools and APIs, building custom retrievers and document loaders, and optimizing performance for production workloads.',
-      'Whether you\'re building chatbots, document Q&A systems, or autonomous agents, our LangChain development services help you move from concept to deployment efficiently.',
-    ],
-  },
   'ai-consulting': {
     title: 'AI Consulting & Advisory',
     tagline: 'Strategic guidance to maximize your AI investment returns',
@@ -66,9 +53,103 @@ const servicesData: Record<string, {
 
 const ServicePage = () => {
   const { slug } = useParams<{ slug: string }>();
-  const service = slug ? servicesData[slug] : null;
 
-  if (!service) {
+  // Handle Custom LLM page
+  if (slug === 'custom-llm') {
+    return (
+      <Layout>
+        <ServiceHero 
+          title={customLLMData.hero.title} 
+          subtitle={customLLMData.hero.subtitle} 
+        />
+        <StatisticsSection 
+          title={customLLMData.statistics.title}
+          description={customLLMData.statistics.description}
+          stats={commonStats}
+        />
+        <ServicesListSection 
+          title={customLLMData.services.title}
+          subtitle={customLLMData.services.subtitle}
+          services={customLLMData.services.list}
+        />
+        <OutcomesSection 
+          title="Our clients achieve"
+          outcomes={commonOutcomes}
+        />
+        <WhyChooseUsSection 
+          title={customLLMData.whyChooseUs.title}
+          reasons={customLLMData.whyChooseUs.reasons}
+        />
+        <ServiceCTA title={customLLMData.hero.title} />
+      </Layout>
+    );
+  }
+
+  // Handle RAG Engineering page
+  if (slug === 'rag-engineering') {
+    return (
+      <Layout>
+        <ServiceHero 
+          title={ragDevelopmentData.hero.title} 
+          subtitle={ragDevelopmentData.hero.subtitle} 
+        />
+        <StatisticsSection 
+          title={ragDevelopmentData.statistics.title}
+          description={ragDevelopmentData.statistics.description}
+          stats={commonStats}
+        />
+        <ServicesListSection 
+          title={ragDevelopmentData.services.title}
+          subtitle={ragDevelopmentData.services.subtitle}
+          services={ragDevelopmentData.services.list}
+        />
+        <OutcomesSection 
+          title="Our clients achieve"
+          outcomes={commonOutcomes}
+        />
+        <WhyChooseUsSection 
+          title={ragDevelopmentData.whyChooseUs.title}
+          reasons={ragDevelopmentData.whyChooseUs.reasons}
+        />
+        <ServiceCTA title={ragDevelopmentData.hero.title} />
+      </Layout>
+    );
+  }
+
+  // Handle LangChain Development page
+  if (slug === 'langchain-development') {
+    return (
+      <Layout>
+        <ServiceHero 
+          title={langchainData.hero.title} 
+          subtitle={langchainData.hero.subtitle} 
+        />
+        <WhatIsSection 
+          title={langchainData.whatIs.title}
+          description={langchainData.whatIs.description}
+        />
+        <ServicesListSection 
+          title={langchainData.services.title}
+          subtitle={langchainData.services.subtitle}
+          services={langchainData.services.list}
+        />
+        <FeaturesSection 
+          title={langchainData.features.title}
+          features={langchainData.features.list}
+        />
+        <WhyChooseUsSection 
+          title={langchainData.whyChooseUs.title}
+          reasons={langchainData.whyChooseUs.reasons}
+        />
+        <ServiceCTA title={langchainData.hero.title} />
+      </Layout>
+    );
+  }
+
+  // Handle legacy service pages
+  const legacyService = slug ? legacyServicesData[slug] : null;
+
+  if (!legacyService) {
     return (
       <Layout>
         <div className="min-h-screen flex items-center justify-center pt-20">
@@ -87,81 +168,22 @@ const ServicePage = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center justify-center bg-gradient-to-br from-primary via-navy-dark to-black pt-20">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-navy-light/20 rounded-full blur-3xl animate-pulse-glow" />
-          <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-pulse-glow animation-delay-500" />
-        </div>
-        <div className="relative z-10 container-wide text-center px-4">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6"
-          >
-            {service.title}
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl text-primary-foreground/80 max-w-3xl mx-auto"
-          >
-            {service.tagline}
-          </motion.p>
-        </div>
-      </section>
-
-      {/* Content */}
+      <ServiceHero 
+        title={legacyService.title} 
+        subtitle={legacyService.tagline} 
+      />
       <section className="section-padding bg-background">
         <div className="container-wide">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="space-y-6"
-            >
-              {service.description.map((paragraph, index) => (
-                <p key={index} className="text-muted-foreground text-lg leading-relaxed">
-                  {paragraph}
-                </p>
-              ))}
-            </motion.div>
-
-            {/* CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="mt-16 bg-secondary rounded-xl p-8 md:p-12"
-            >
-              <h3 className="font-heading text-2xl font-bold text-foreground mb-4">
-                Ready to get started?
-              </h3>
-              <p className="text-muted-foreground mb-8">
-                Contact us to discuss how we can help with your {service.title.toLowerCase()} needs.
+          <div className="max-w-4xl mx-auto space-y-6">
+            {legacyService.description.map((paragraph, index) => (
+              <p key={index} className="text-muted-foreground text-lg leading-relaxed">
+                {paragraph}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-navy-light hover:shadow-lg"
-                >
-                  Contact Us
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-                <Link
-                  to="/case-studies"
-                  className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
-                >
-                  View Case Studies
-                </Link>
-              </div>
-            </motion.div>
+            ))}
           </div>
         </div>
       </section>
+      <ServiceCTA title={legacyService.title} />
     </Layout>
   );
 };
