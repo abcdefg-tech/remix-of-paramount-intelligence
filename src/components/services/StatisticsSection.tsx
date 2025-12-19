@@ -35,14 +35,14 @@ const StatisticsSection = ({ title, description, stats }: StatisticsSectionProps
           </p>
         </motion.div>
 
-        <div className="flex flex-col items-center gap-8 max-w-2xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: index * 0.15 }}
-              className="w-full bg-secondary rounded-xl p-8 text-center shadow-elegant"
+              className="bg-secondary rounded-xl p-8 text-center shadow-elegant"
             >
               <div 
                 className="font-heading text-5xl md:text-6xl font-bold mb-4"

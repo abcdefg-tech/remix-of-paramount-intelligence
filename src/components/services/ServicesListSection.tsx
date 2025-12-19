@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 interface Service {
   title: string;
@@ -17,6 +18,12 @@ const ServicesListSection = ({ title, subtitle, services }: ServicesListSectionP
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [activeService, setActiveService] = useState(0);
+  const location = useLocation();
+
+  // Reset to first item when route changes
+  useEffect(() => {
+    setActiveService(0);
+  }, [location.pathname]);
 
   return (
     <section ref={ref} className="section-padding bg-secondary">
