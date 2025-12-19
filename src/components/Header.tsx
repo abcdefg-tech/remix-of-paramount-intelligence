@@ -34,18 +34,14 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-background/95 backdrop-blur-md shadow-elegant'
-          : 'bg-transparent'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-primary shadow-elegant"
     >
       <div className="container-wide">
         <nav className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <img src={logo} alt="Paramount Intelligence" className="h-10 w-auto" />
-            <span className="font-heading font-bold text-xl text-primary">
+            <span className="font-heading font-bold text-xl text-primary-foreground">
               Paramount Intelligence
             </span>
           </Link>
@@ -58,7 +54,7 @@ const Header = () => {
               onMouseEnter={() => setIsServicesOpen(true)}
               onMouseLeave={() => setIsServicesOpen(false)}
             >
-              <button className="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium">
+              <button className="flex items-center gap-1 text-primary-foreground hover:text-primary-foreground/80 transition-colors font-medium">
                 Services
                 <ChevronDown className={`w-4 h-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
               </button>
@@ -87,19 +83,19 @@ const Header = () => {
 
             <Link
               to="/case-studies"
-              className="text-foreground hover:text-primary transition-colors font-medium"
+              className="text-primary-foreground hover:text-primary-foreground/80 transition-colors font-medium"
             >
               Case Studies
             </Link>
             <Link
               to="/about"
-              className="text-foreground hover:text-primary transition-colors font-medium"
+              className="text-primary-foreground hover:text-primary-foreground/80 transition-colors font-medium"
             >
               About Us
             </Link>
             <Link
               to="/contact"
-              className="bg-primary-foreground text-primary border-2 border-primary px-5 py-2.5 rounded-lg font-medium transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
+              className="bg-primary-foreground text-primary border-2 border-primary-foreground px-5 py-2.5 rounded-lg font-medium transition-all duration-300 hover:bg-transparent hover:text-primary-foreground"
             >
               Contact Us
             </Link>
@@ -107,7 +103,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-foreground"
+            className="lg:hidden p-2 text-primary-foreground"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
