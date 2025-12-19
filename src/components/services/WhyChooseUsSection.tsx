@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Handshake, Lightbulb, Settings, CheckCircle, Monitor } from 'lucide-react';
+import { Handshake, Lightbulb, Settings, CheckCircle, Monitor, TrendingUp, Rocket } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';
 
 interface Reason {
@@ -13,6 +13,7 @@ interface Reason {
 interface WhyChooseUsSectionProps {
   title: string;
   reasons: Reason[];
+  columns?: 2 | 3 | 4;
 }
 
 const iconMap: Record<string, LucideIcon> = {
@@ -21,11 +22,22 @@ const iconMap: Record<string, LucideIcon> = {
   settings: Settings,
   checkmark: CheckCircle,
   computer: Monitor,
+  graph: TrendingUp,
+  rocket: Rocket,
 };
 
-const WhyChooseUsSection = ({ title, reasons }: WhyChooseUsSectionProps) => {
+const WhyChooseUsSection = ({ title, reasons, columns }: WhyChooseUsSectionProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  // Determine grid columns based on explicit prop or fallback to automatic
+  const getGridClass = () => {
+    if (columns === 2) return 'md:grid-cols-2';
+    if (columns === 3) return 'md:grid-cols-3';
+    if (columns === 4) return 'md:grid-cols-2 lg:grid-cols-4';
+    // Automatic: 4 items = 4 cols, 3 items = 3 cols
+    return reasons.length === 4 ? 'md:grid-cols-2 lg:grid-cols-4' : 'md:grid-cols-3';
+  };
 
   return (
     <section ref={ref} className="section-padding bg-primary">
@@ -39,7 +51,7 @@ const WhyChooseUsSection = ({ title, reasons }: WhyChooseUsSectionProps) => {
           {title}
         </motion.h2>
 
-        <div className={`grid gap-8 ${reasons.length === 4 ? 'md:grid-cols-2 lg:grid-cols-4' : 'md:grid-cols-3'}`}>
+        <div className={`grid gap-8 ${getGridClass()}`}>
           {reasons.map((reason, index) => {
             const IconComponent = iconMap[reason.icon] || Handshake;
             return (

@@ -12,6 +12,7 @@ import {
   customLLMData, 
   ragDevelopmentData, 
   langchainData, 
+  aiConsultingData,
   commonStats, 
   commonOutcomes 
 } from '@/data/serviceData';
@@ -142,6 +143,33 @@ const ServicePage = () => {
           reasons={langchainData.whyChooseUs.reasons}
         />
         <ServiceCTA title={langchainData.hero.title} />
+      </Layout>
+    );
+  }
+
+  // Handle AI Consulting page
+  if (slug === 'ai-consulting') {
+    return (
+      <Layout>
+        <ServiceHero 
+          title={aiConsultingData.hero.title} 
+          subtitle={aiConsultingData.hero.subtitle} 
+        />
+        <ServicesListSection 
+          title={aiConsultingData.services.title}
+          subtitle={aiConsultingData.services.subtitle}
+          services={aiConsultingData.services.list}
+        />
+        <OutcomesSection 
+          title="Our clients achieve"
+          outcomes={commonOutcomes}
+        />
+        <WhyChooseUsSection 
+          title={aiConsultingData.whyChooseUs.title}
+          reasons={aiConsultingData.whyChooseUs.reasons}
+          columns={2}
+        />
+        <ServiceCTA title={aiConsultingData.hero.title} />
       </Layout>
     );
   }

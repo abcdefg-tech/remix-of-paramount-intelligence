@@ -227,3 +227,61 @@ export const langchainData = {
     ],
   },
 };
+
+export const aiConsultingData = {
+  hero: {
+    title: "AI Consulting Experts in Artificial Intelligence Solutions",
+    subtitle: "Consult your current and future projects with Paramount Intelligence - specialists in the field of AI",
+  },
+  services: {
+    title: "Consultancy in the field of AI solutions",
+    subtitle: "What we can help you with:",
+    list: [
+      {
+        title: "AI Consultation Service",
+        description: "Our AI consultation service helps companies leverage artificial intelligence to optimize operations and drive innovation. We analyze your business needs and goals, recommend the best AI tools and technologies, and guide you in maximizing your return on investment while supporting long-term growth.",
+      },
+      {
+        title: "AI Workshops",
+        description: "Our AI workshops are interactive sessions designed to help teams understand how AI can be implemented in their organization. Participants gain hands-on knowledge of the latest tools, methods, and strategies, enabling them to quickly adopt AI and apply it effectively in daily operations.",
+      },
+      {
+        title: "Design AI Strategy",
+        description: "We craft comprehensive AI strategies tailored to your company's specific needs. From identifying key business objectives to developing implementation plans, our approach ensures that AI becomes a core component of your long-term business development and success.",
+      },
+      {
+        title: "Technology Consultancy",
+        description: "Our technology consultancy service offers a detailed audit of your current systems, an analysis of available AI technologies, and expert guidance on selecting the optimal tools for your project. We help you mitigate technological risks and make informed decisions to ensure the success of your AI initiatives.",
+      },
+      {
+        title: "AI Product Roadmap",
+        description: "We create AI product roadmaps that enable companies to strategically plan the development of AI-based solutions. We outline key implementation stages, track progress, and ensure alignment with business objectives, reducing the risk of delays and unforeseen costs.",
+      },
+    ],
+  },
+  whyChooseUs: {
+    title: "Why choose us?",
+    reasons: [
+      {
+        icon: "graph",
+        title: "Experience in AI projects",
+        description: "Our Paramount Intelligence team has a proven record of delivering AI solutions that tackle complex business challenges. We apply advanced AI techniques, automation, and personalized strategies to consistently achieve measurable results aligned with your goals.",
+      },
+      {
+        icon: "lightbulb",
+        title: "Specialized tech stack",
+        description: "Our skilled team excels in AI and machine learning, selecting and implementing the best tools for each project. Their expertise ensures efficient, reliable, and scalable solutions.",
+      },
+      {
+        icon: "settings",
+        title: "End-to-end solution provider",
+        description: "We manage your AI and machine learning project from concept to deployment and support, ensuring seamless integration, faster delivery, and consistent quality throughout.",
+      },
+      {
+        icon: "rocket",
+        title: "Fast and efficient",
+        description: "We prioritize speed and precision in everything we do. Our approach is designed to streamline development and deliver high-quality AI solutions in the shortest possible time, ensuring you can implement and benefit from them without delays.",
+      },
+    ],
+  },
+};
