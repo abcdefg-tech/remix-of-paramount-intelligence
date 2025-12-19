@@ -3,51 +3,70 @@ import Layout from '@/components/Layout';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
+import healthcareImg from '@/assets/case-studies/healthcare.jpg';
+import realEstateImg from '@/assets/case-studies/real-estate.jpg';
+import telecomImg from '@/assets/case-studies/telecommunications.jpg';
+import dataAnalyticsImg from '@/assets/case-studies/data-analytics.jpg';
+import collaborationImg from '@/assets/case-studies/collaboration.jpg';
+import callCenterImg from '@/assets/case-studies/call-center.jpg';
+import ecommerceImg from '@/assets/case-studies/ecommerce.jpg';
+import hardwareImg from '@/assets/case-studies/hardware.jpg';
+import automationImg from '@/assets/case-studies/automation.jpg';
+
 const caseStudies = [
   {
     title: 'Intelligent automation with actionable AI Agents for the US telecommunication company',
     category: 'Telecommunications',
     slug: 'intelligent-automation-us-telecom',
+    image: telecomImg,
   },
   {
     title: 'Advanced RAG Engineering for real estate due diligence AI Agent',
     category: 'Real Estate',
     slug: 'advanced-rag-real-estate',
+    image: realEstateImg,
   },
   {
     title: 'Automated data scraping platform powered by AI and LLMs',
     category: 'Data & Analytics',
     slug: 'automated-data-scraping',
+    image: dataAnalyticsImg,
   },
   {
     title: 'Collaborative Conversational AI assistant with automation',
     category: 'Collaboration',
     slug: 'collaborative-ai-assistant',
+    image: collaborationImg,
   },
   {
     title: 'LLM-powered voice assistant for call-center',
     category: 'Customer Service',
     slug: 'llm-voice-assistant-call-center',
+    image: callCenterImg,
   },
   {
     title: 'RAG: Automation e-mail response with AI and LLMs',
     category: 'Automation',
     slug: 'rag-email-automation',
+    image: automationImg,
   },
   {
     title: 'AI agent for order recommendation and completion',
     category: 'E-commerce',
     slug: 'ai-order-recommendation',
+    image: ecommerceImg,
   },
   {
     title: 'Swapping Iron; making AI code designed from Nvidia run on Intel Gaudi',
     category: 'Hardware Migration',
     slug: 'nvidia-to-intel-migration',
+    image: hardwareImg,
   },
   {
     title: 'Multi-channel AI Agent for personalized appointments in Healthcare',
     category: 'Healthcare',
     slug: 'multi-channel-healthcare-agent',
+    image: healthcareImg,
   },
 ];
 
@@ -88,10 +107,12 @@ const CaseStudies = () => {
                   className="group block bg-secondary rounded-xl overflow-hidden h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
                 >
                   {/* Image Area */}
-                  <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/20 flex items-center justify-center">
-                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                      <div className="w-8 h-8 bg-primary/20 rounded-full" />
-                    </div>
+                  <div className="aspect-video overflow-hidden">
+                    <img 
+                      src={study.image} 
+                      alt={study.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
                   </div>
                   
                   {/* Content */}

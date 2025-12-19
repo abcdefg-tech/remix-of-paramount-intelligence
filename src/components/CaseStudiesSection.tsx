@@ -2,32 +2,37 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Building2, Home, Phone, Cpu } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+
+import healthcareImg from '@/assets/case-studies/healthcare.jpg';
+import realEstateImg from '@/assets/case-studies/real-estate.jpg';
+import telecomImg from '@/assets/case-studies/telecommunications.jpg';
+import hardwareImg from '@/assets/case-studies/hardware.jpg';
 
 const caseStudies = [
   {
-    icon: Building2,
+    image: healthcareImg,
     category: 'Healthcare',
     title: 'Multi-channel AI Agent for personalized appointments in Healthcare',
     description: 'A U.S. healthcare provider serving 100,000+ members across multiple states relies on advanced technology to deliver high-quality, affordable care. By deploying of multi-channel, pre-appointment AI Agent, each doctor now saves more than five hours a week, while patient engagement has climbed over 20% thanks to personalized, accessible communication.',
     link: '/case-studies/multi-channel-healthcare-agent',
   },
   {
-    icon: Home,
+    image: realEstateImg,
     category: 'Real Estate',
     title: 'Advanced RAG Engineering for real estate due diligence AI Agent',
     description: 'US-based startup on a mission to transform how real estate developers conduct due diligence. By utilizing the power of artificial intelligence. AI Agent takes what used to be weeks of due diligence and gets it done in minutes, saving developers thousands of dollars per project while keeping the accuracy spot-on.',
     link: '/case-studies/advanced-rag-real-estate',
   },
   {
-    icon: Phone,
+    image: telecomImg,
     category: 'Telecommunications',
     title: 'Intelligent automation with actionable AI Agents for the US telecommunication company',
     description: 'The US-based telecommunications provider with over 45 years of industry experience delivers fiber-powered internet and video services to 150,000+ households in 500+ master-planned communities. The client found in Paramount Intelligence the right partner for their long-term transformation journey.',
     link: '/case-studies/intelligent-automation-us-telecom',
   },
   {
-    icon: Cpu,
+    image: hardwareImg,
     category: 'Hardware Migration',
     title: 'Swapping Iron; making AI code designed from Nvidia run on Intel Gaudi',
     description: 'Migrating Machine Learning and LLM solutions designed to run on Nvidia hardware to a different architecture: Intel Gaudi AI accelerators.',
@@ -63,9 +68,13 @@ const CaseStudiesSection = () => {
             >
               <div className="bg-background rounded-xl overflow-hidden shadow-elegant card-hover">
                 <div className="flex flex-col lg:flex-row">
-                  {/* Icon/Image Area */}
-                  <div className="lg:w-80 flex-shrink-0 bg-gradient-to-br from-primary/5 to-accent/10 flex items-center justify-center p-12">
-                    <study.icon className="w-20 h-20 text-primary/40" />
+                  {/* Image Area */}
+                  <div className="lg:w-80 flex-shrink-0 overflow-hidden">
+                    <img 
+                      src={study.image} 
+                      alt={study.title}
+                      className="w-full h-48 lg:h-full object-cover transition-transform duration-500 hover:scale-105"
+                    />
                   </div>
                   
                   {/* Content */}

@@ -3,6 +3,28 @@ import Layout from '@/components/Layout';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, Check } from 'lucide-react';
 
+import healthcareImg from '@/assets/case-studies/healthcare.jpg';
+import realEstateImg from '@/assets/case-studies/real-estate.jpg';
+import telecomImg from '@/assets/case-studies/telecommunications.jpg';
+import dataAnalyticsImg from '@/assets/case-studies/data-analytics.jpg';
+import collaborationImg from '@/assets/case-studies/collaboration.jpg';
+import callCenterImg from '@/assets/case-studies/call-center.jpg';
+import ecommerceImg from '@/assets/case-studies/ecommerce.jpg';
+import hardwareImg from '@/assets/case-studies/hardware.jpg';
+import automationImg from '@/assets/case-studies/automation.jpg';
+
+const caseStudyImages: Record<string, string> = {
+  'intelligent-automation-us-telecom': telecomImg,
+  'advanced-rag-real-estate': realEstateImg,
+  'multi-channel-healthcare-agent': healthcareImg,
+  'automated-data-scraping': dataAnalyticsImg,
+  'collaborative-ai-assistant': collaborationImg,
+  'llm-voice-assistant-call-center': callCenterImg,
+  'rag-email-automation': automationImg,
+  'ai-order-recommendation': ecommerceImg,
+  'nvidia-to-intel-migration': hardwareImg,
+};
+
 const caseStudyData: Record<string, {
   title: string;
   category: string;
@@ -217,6 +239,7 @@ const caseStudyData: Record<string, {
 const CaseStudyDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const study = slug ? caseStudyData[slug] : null;
+  const heroImage = slug ? caseStudyImages[slug] : null;
 
   if (!study) {
     return (
@@ -264,10 +287,20 @@ const CaseStudyDetail = () => {
             <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8">
               {study.title}
             </h1>
-            <div className="aspect-[21/9] bg-gradient-to-br from-primary/10 to-accent/20 rounded-xl flex items-center justify-center">
-              <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center">
-                <div className="w-12 h-12 bg-primary/20 rounded-full" />
-              </div>
+            <div className="aspect-[21/9] rounded-xl overflow-hidden">
+              {heroImage ? (
+                <img 
+                  src={heroImage} 
+                  alt={study.title}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <div className="w-full h-full bg-gradient-to-br from-primary/10 to-accent/20 flex items-center justify-center">
+                  <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center">
+                    <div className="w-12 h-12 bg-primary/20 rounded-full" />
+                  </div>
+                </div>
+              )}
             </div>
           </motion.div>
         </div>
