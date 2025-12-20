@@ -14,6 +14,9 @@ const services = [
   'LLM Ops Service',
 ];
 
+// Replace this with your actual Google Apps Script Web App URL
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwH01_hT7Tv4iU1tnhMj32bxiJ-FcDzih_fPVI99iXdPxMPJ8dpEgzXIKSDYj-aNHz0Tg/exec';
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -23,28 +26,55 @@ const Contact = () => {
     service: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    toast.success('Thank you for your message! We will get back to you soon.');
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      phone: '',
-      service: '',
-      message: '',
-    });
+    
+    // Validate required fields
+    if (!formData.name || !formData.email) {
+      alert('Please fill in all required fields (Name and Email)');
+      return;
+    }
+    
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      // Note: With no-cors mode, we can't read the response
+      // But if no error is thrown, we can assume success
+      alert('Thank you for your message! We will get back to you soon.');
+      
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        phone: '',
+        service: '',
+        message: '',
+      });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('There was an error submitting the form. Please try again or email us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
-
   return (
     <Layout>
       {/* Hero Section */}
