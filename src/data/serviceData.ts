@@ -285,3 +285,125 @@ export const aiConsultingData = {
     ],
   },
 };
+
+export const llmDevelopmentData = {
+  hero: {
+    title: "Large Language Models (LLM) development",
+    subtitle: "Transform operations with hyper-automation, hyper-personalization, and smarter decision-making using Large Language Model",
+  },
+  services: {
+    title: "Our Large Language Model development",
+    subtitle: "",
+    list: [
+      {
+        title: "Consultancy & Strategy",
+        description: "This service includes an in-depth analysis of your business needs, challenges, and goals. We guide you through the process of identifying where LLM-based solutions can bring the most value. This includes:\n\n• Understanding your business domain and objectives.\n• Identifying use cases where LLMs can optimize processes or enhance outcomes.\n• Recommending tailored strategies and technical approaches.\n• Outlining the implementation steps, timelines, and expected ROI.",
+      },
+      {
+        title: "LLM Audits & Insights",
+        description: "This service includes an in-depth analysis of your business needs, challenges, and goals. Comprehensive evaluation of your language model systems throughout development and deployment. We ensure your LLM solutions are safe, reliable, and optimal through: safety and bias assessments, performance evaluations across benchmarks and real scenarios, behavioral analysis to identify risks, and actionable insights for optimization. Our process guides you through systematic auditing protocols that maximize model effectiveness while minimizing potential issues and compliance risks.",
+      },
+      {
+        title: "Selecting the Optimal LLM",
+        description: "This service focuses on choosing the most suitable Large Language Model for your needs. We evaluate your business context, technical requirements, and goals to identify the best-fit model. This includes: analyzing data types, scalability, and security needs; comparing model performance, costs, and adaptability; recommending the LLM that aligns with your objectives; and outlining the integration approach to ensure efficiency, reliability, and long-term value.",
+      },
+      {
+        title: "Data Preparation & Management",
+        description: "This service ensures your data is ready and optimized for Large Language Model development. We focus on collecting, cleaning, structuring, and managing datasets to maximize model performance and reliability. This includes: assessing existing data sources and quality; applying preprocessing techniques to remove inconsistencies; organizing data for scalability and security; implementing governance standards; and setting up efficient pipelines to support ongoing model training, updates, and maintenance.",
+      },
+      {
+        title: "Model Fine-Tuning",
+        description: "This service adapts Large Language Models to your specific business needs for improved accuracy and relevance. We refine pre-trained models using your domain data, ensuring alignment with context, tone, and objectives. This includes: selecting the right fine-tuning approach; customizing models for industry-specific terminology; enhancing performance for targeted tasks; validating results with rigorous testing; and delivering a model optimized to support real-world use cases and long-term value.",
+      },
+      {
+        title: "Scalable Deployment & MLOps",
+        description: "This service ensures seamless integration and reliable operation of Large Language Models within your infrastructure. We focus on deploying solutions that scale with your business while maintaining performance and security. This includes: designing deployment strategies tailored to your environment; implementing MLOps practices for monitoring and automation; optimizing resource usage and costs; enabling continuous updates and retraining; and ensuring long-term stability, compliance, and efficiency.",
+      },
+      {
+        title: "Maintenance & Optimization",
+        description: "This service ensures the long-term performance, accuracy, and reliability of Large Language Models after deployment. We continuously monitor models to detect issues, apply updates, and optimize efficiency. This includes: tracking performance and user feedback; fine-tuning to maintain relevance; enhancing speed, scalability, and cost-effectiveness; addressing security and compliance needs; and implementing improvements that adapt to changing business requirements and evolving data environments.",
+      },
+    ],
+  },
+  whyChooseUs: {
+    title: "Why choose us as a LLM developer?",
+    reasons: [
+      {
+        icon: "graph",
+        title: "Experience in LLM projects",
+        description: "Over 90 completed projects since 2017, specializing in enterprise transformation with Large Language Models. Our 25 AI specialists deliver custom, scalable solutions tailored to business needs.",
+      },
+      {
+        icon: "lightbulb",
+        title: "Specialized tech stack",
+        description: "We leverage a range of specialized tools designed for Large Language Model development, ensuring efficient, innovative, and tailored solutions for every project.",
+      },
+      {
+        icon: "settings",
+        title: "End-to-end support",
+        description: "We provide full support from consultation and proof of concept to deployment and maintenance, ensuring scalable, secure, and future-ready solutions.",
+      },
+    ],
+  },
+};
+
+export const llmOpsData = {
+  hero: {
+    title: "LLM Ops service",
+    subtitle: "Efficiently optimize, scale, and manage your Large Language Models with tailored LLM Ops solutions",
+  },
+  statistics: {
+    title: "Why leading companies automate processes with Generative AI?",
+    description: "Generative AI is a category of artificial intelligence that creates new, original content by learning patterns from vast datasets and generating human-like text, images, code, audio, and other media formats. Rather than simply analyzing or categorizing existing information, Generative AI produces novel outputs that didn't previously exist, enabling organizations to automate creative processes, accelerate content production, and unlock new forms of value creation across business functions",
+  },
+  services: {
+    title: "Our LLMOps services",
+    subtitle: "What we can help you with:",
+    list: [
+      {
+        title: "Consultation",
+        description: "We provide expert consultations to help you navigate the complexities of LLM operations. This service includes:\n\n• Assessing your current AI infrastructure and identifying areas for improvement.\n• Recommending the best practices for deployment, optimization, and scaling.\n• Tailoring strategies to align with your business objectives and technical requirements.\n\nOur advisory services ensure you make informed decisions to maximize the value of your AI investments.",
+      },
+      {
+        title: "Model optimization & Efficiency tuning",
+        description: "We enhance the performance of your LLMs by fine-tuning their parameters and improving their computational efficiency. Our optimization services include:\n\n• Reducing response times by implementing advanced techniques such as pruning and quantization.\n• Dynamic resource allocation to ensure efficient data flow.\n• Maximizing model accuracy while minimizing computational overhead.\n\nBy optimizing your models, we help reduce operational costs and improve user satisfaction, delivering faster and more precise results for your business.",
+      },
+      {
+        title: "Scalability solutions for LLM workloads",
+        description: "Ensure your systems are ready to handle high traffic with our scalability solutions. This service includes:\n\n• Designing robust systems capable of processing thousands of simultaneous queries.\n• Implementing technologies like load balancing, autoscaling, and network optimization.\n• Adapting infrastructure to meet changing demands without compromising performance.\n\nWith our scalability solutions, your business can confidently grow while maintaining seamless and efficient operations.",
+      },
+      {
+        title: "Custom LLM deployment solutions",
+        description: "We specialize in deploying LLMs tailored to your infrastructure requirements, ensuring seamless integration. This service covers:\n\n• Deployment on cloud platforms (AWS, Azure, GCP), on-premises environments, or hybrid systems.\n• Full compatibility with your existing tech stack, supported by best practices in DevOps.\n• Automated deployment pipelines using CI/CD tools and containerization technologies.\n• Leveraging tools for efficient infrastructure management.\n\nOur deployment services ensure your models are operational and ready to deliver value from day one.",
+      },
+      {
+        title: "Proactive performance monitoring",
+        description: "Stay ahead of potential issues with continuous monitoring of your LLMs' performance. Key features include:\n\n• Using monitoring tools like Prometheus, Grafana, and Datadog for real-time insights.\n• Early anomaly detection with automated alert systems.\n• Regular performance audits to ensure models remain efficient and reliable.\n• Proactive recommendations to prevent unplanned downtime.\n\nWith our performance monitoring, you can trust your LLMs to operate at their best, always.",
+      },
+      {
+        title: "Cost optimization with intelligent resource management",
+        description: "Optimize operational costs while maintaining high performance. Our cost optimization solutions include:\n\n• Implementing autoscaling mechanisms to activate resources only when needed.\n• Leveraging cloud cost-saving techniques, such as spot instances and reserved instances.\n• Analyzing and fine-tuning resource usage to eliminate unnecessary expenses.\n• Offering insights on real-world savings through efficient resource management.",
+      },
+    ],
+  },
+  whyChooseUs: {
+    title: "Why choose us?",
+    reasons: [
+      {
+        icon: "handshake",
+        title: "Experience in RAG projects",
+        description: "Over 30+ successful AI agent deployments with RAG-based systems. Our 25 Agentic AI engineers deliver scalable and tailored solutions on business needs.",
+      },
+      {
+        icon: "lightbulb",
+        title: "Specialized tech stack",
+        description: "We leverage a range of specialized tools designed for LLM and RAG development, ensuring efficient, innovative, and tailored solutions for every project.",
+      },
+      {
+        icon: "settings",
+        title: "End-to-end support",
+        description: "We provide full support from consultation and proof of concept to deployment and maintenance, ensuring scalable, secure, and future-ready solutions.",
+      },
+    ],
+  },
+};

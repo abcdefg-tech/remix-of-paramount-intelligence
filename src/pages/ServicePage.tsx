@@ -13,44 +13,13 @@ import {
   ragDevelopmentData, 
   langchainData, 
   aiConsultingData,
+  llmDevelopmentData,
+  llmOpsData,
   commonStats, 
   commonOutcomes 
 } from '@/data/serviceData';
 
-// Legacy data for other service pages
-const legacyServicesData: Record<string, {
-  title: string;
-  tagline: string;
-  description: string[];
-}> = {
-  'ai-consulting': {
-    title: 'AI Consulting & Advisory',
-    tagline: 'Strategic guidance to maximize your AI investment returns',
-    description: [
-      'Our AI consulting services help organizations navigate the complex landscape of artificial intelligence implementation. We combine deep technical expertise with business acumen to ensure your AI initiatives deliver measurable value.',
-      'We provide AI readiness assessments, use case identification and prioritization, technology stack recommendations, implementation roadmaps, vendor evaluation and selection, and ongoing strategic advisory.',
-      'Our consultants work as an extension of your team, helping you avoid common pitfalls and accelerate your AI transformation journey with confidence.',
-    ],
-  },
-  'llm-development': {
-    title: 'LLM Development',
-    tagline: 'End-to-end development of large language model applications',
-    description: [
-      'Our LLM development services cover the full spectrum of building AI-powered applications. From initial concept to production deployment, we handle every aspect of creating robust, scalable LLM solutions.',
-      'Our development process includes requirements analysis and solution design, model selection and customization, prompt engineering and optimization, API development and integration, testing and quality assurance, and deployment and monitoring setup.',
-      'We follow best practices for LLM application development, ensuring your solutions are secure, performant, and maintainable over time.',
-    ],
-  },
-  'llm-ops': {
-    title: 'LLM Ops Service',
-    tagline: 'Efficiently manage, scale, and optimize your LLM infrastructure',
-    description: [
-      'LLM Ops (LLMOps) is essential for organizations running language models in production. Our service ensures your AI systems remain performant, cost-effective, and reliable at scale.',
-      'Our LLMOps services include model versioning and deployment automation, performance monitoring and alerting, cost optimization strategies, prompt management systems, A/B testing and evaluation frameworks, and security and compliance implementation.',
-      'We help you build the operational foundation needed to run LLMs successfully in production, whether you\'re using cloud APIs or self-hosted models.',
-    ],
-  },
-};
+// Legacy data is no longer needed as all service pages are now using structured data
 
 const ServicePage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -174,44 +143,76 @@ const ServicePage = () => {
     );
   }
 
-  // Handle legacy service pages
-  const legacyService = slug ? legacyServicesData[slug] : null;
-
-  if (!legacyService) {
+  // Handle LLM Development page
+  if (slug === 'llm-development') {
     return (
       <Layout>
-        <div className="min-h-screen flex items-center justify-center pt-20">
-          <div className="text-center">
-            <h1 className="font-heading text-2xl font-bold text-foreground mb-4">
-              Service not found
-            </h1>
-            <Link to="/" className="text-primary hover:underline">
-              Back to Home
-            </Link>
-          </div>
-        </div>
+        <ServiceHero 
+          title={llmDevelopmentData.hero.title} 
+          subtitle={llmDevelopmentData.hero.subtitle} 
+        />
+        <ServicesListSection 
+          title={llmDevelopmentData.services.title}
+          subtitle={llmDevelopmentData.services.subtitle}
+          services={llmDevelopmentData.services.list}
+        />
+        <OutcomesSection 
+          title="Customers using our Large Language Model development services have achieved:"
+          outcomes={commonOutcomes}
+        />
+        <WhyChooseUsSection 
+          title={llmDevelopmentData.whyChooseUs.title}
+          reasons={llmDevelopmentData.whyChooseUs.reasons}
+        />
+        <ServiceCTA title={llmDevelopmentData.hero.title} />
       </Layout>
     );
   }
 
+  // Handle LLM Ops page
+  if (slug === 'llm-ops') {
+    return (
+      <Layout>
+        <ServiceHero 
+          title={llmOpsData.hero.title} 
+          subtitle={llmOpsData.hero.subtitle} 
+        />
+        <StatisticsSection 
+          title={llmOpsData.statistics.title}
+          description={llmOpsData.statistics.description}
+          stats={commonStats}
+        />
+        <ServicesListSection 
+          title={llmOpsData.services.title}
+          subtitle={llmOpsData.services.subtitle}
+          services={llmOpsData.services.list}
+        />
+        <OutcomesSection 
+          title="Our clients achieve"
+          outcomes={commonOutcomes}
+        />
+        <WhyChooseUsSection 
+          title={llmOpsData.whyChooseUs.title}
+          reasons={llmOpsData.whyChooseUs.reasons}
+        />
+        <ServiceCTA title={llmOpsData.hero.title} />
+      </Layout>
+    );
+  }
+
+  // Service not found
   return (
     <Layout>
-      <ServiceHero 
-        title={legacyService.title} 
-        subtitle={legacyService.tagline} 
-      />
-      <section className="section-padding bg-background">
-        <div className="container-wide">
-          <div className="max-w-4xl mx-auto space-y-6">
-            {legacyService.description.map((paragraph, index) => (
-              <p key={index} className="text-muted-foreground text-lg leading-relaxed">
-                {paragraph}
-              </p>
-            ))}
-          </div>
+      <div className="min-h-screen flex items-center justify-center pt-20">
+        <div className="text-center">
+          <h1 className="font-heading text-2xl font-bold text-foreground mb-4">
+            Service not found
+          </h1>
+          <Link to="/" className="text-primary hover:underline">
+            Back to Home
+          </Link>
         </div>
-      </section>
-      <ServiceCTA title={legacyService.title} />
+      </div>
     </Layout>
   );
 };
