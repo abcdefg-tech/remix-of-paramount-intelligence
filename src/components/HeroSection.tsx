@@ -47,8 +47,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary-foreground leading-tight mb-8"
           >
-            Automating intelligence,{' '}
-            <span className="text-gray-medium">engineering autonomy.</span>
+            Unlock the Full Potential of AI
           </motion.h1>
 
           <motion.p
@@ -57,10 +56,8 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg md:text-xl text-primary-foreground/80 leading-relaxed max-w-3xl mx-auto mb-12"
           >
-            Paramount Intelligence builds tailored AI Agents that automate complex operations, 
-            delivering measurable business value where standard solutions fall short. We transform 
-            business operations with tailored RAG and Agentic automations that go beyond standard 
-            solutions, delivering proven ROI through practical, hands-on implementation.
+            We are applied AI experts. Through guidance, strategy, and implementation, we support 
+            you every step of the way to unlock the full potential of AI for your business.
           </motion.p>
 
           <motion.div
