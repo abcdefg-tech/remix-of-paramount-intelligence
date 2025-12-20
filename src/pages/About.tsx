@@ -3,6 +3,9 @@ import Layout from '@/components/Layout';
 import { Sunrise, Users, TrendingUp, Smile, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import diversityImage from '@/assets/about/diversity-inclusion.jpg';
+import communityImage from '@/assets/about/community-responsibility.jpg';
+import environmentImage from '@/assets/about/environmentally-sound.jpg';
 
 const coreValues = [
   {
@@ -31,14 +34,17 @@ const whereWeStand = [
   {
     title: 'Diversity and inclusion',
     description: "It's all about bringing people together around a similar mindset, and topics they care about, but without losing sight of their individuality. To ensure that our community is fair and 100 percent talent-based, we focus on diversity and inclusion. The fourth industrial revolution has made us aware that happy employees add value to the business, making it more ethical and competitive.",
+    image: diversityImage,
   },
   {
     title: 'Community social responsibility',
     description: 'It means making a positive contribution to our communities. The members of our community commit voluntarily, as long as it is in their hearts. We operate as an ethical, sustainable, and human-oriented brand in a digitalized world.',
+    image: communityImage,
   },
   {
     title: 'Environmentally-sound',
     description: "As our planet is shaking, we know it's time for us to act and go green. We are a paperless community, with no waste policies:",
+    image: environmentImage,
     points: [
       'We minimize waste by evaluating operations and ensuring they are as efficient as possible.',
       'We promote rechargeable batteries wherever possible.',
@@ -249,10 +255,12 @@ const About = () => {
                 }`}
               >
                 <div className="lg:w-1/2">
-                  <div className="aspect-video bg-gradient-to-br from-primary/5 to-accent/10 rounded-xl flex items-center justify-center">
-                    <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center">
-                      <Users className="w-12 h-12 text-primary/40" />
-                    </div>
+                  <div className="aspect-video rounded-xl overflow-hidden shadow-elegant">
+                    <img 
+                      src={item.image} 
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
                 <div className="lg:w-1/2">
